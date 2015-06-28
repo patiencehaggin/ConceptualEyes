@@ -1,0 +1,47 @@
+[
+    {
+        "ques": "Phoenix is the capital of which state?", 
+        "ans": "1", 
+        "opt4": "North Dakota", 
+        "opt1": "Arizona", 
+        "id": "0", 
+        "opt3": "California", 
+        "opt2": "Texas"
+    }, 
+    {
+        "ques": "Which state shares a land border with Canada?", 
+        "ans": "3", 
+        "opt4": "South Dakota", 
+        "opt1": "California", 
+        "id": "1", 
+        "opt3": "Montana", 
+        "opt2": "Texas"
+    }, 
+    {
+        "ques": "Which state\"s capital is Trenton?", 
+        "ans": "2", 
+        "opt4": "North Dakota", 
+        "opt1": "Texas", 
+        "id": "2", 
+        "opt3": "California", 
+        "opt2": "New Jersey"
+    }, 
+    {
+        "ques": "Phoenix is the capital of which state?", 
+        "ans": "1", 
+        "opt4": "North Dakota", 
+        "opt1": "Arizona", 
+        "id": "3", 
+        "opt3": "California", 
+        "opt2": "Texas"
+    }, 
+    {
+        "ques": "Jackson is the capital of which state?", 
+        "ans": "3", 
+        "opt4": "North Dakota", 
+        "opt1": "California", 
+        "id": "4", 
+        "opt3": "Mississippi", 
+        "opt2": "Texas"
+    }
+]
