@@ -1,3 +1,4 @@
 # ConceptualEyes
-NeoHack 2015
-This is the readme
+ConceptualEyes is a dynamic, realtime concept-mapping web app developed at neoHack2015.
+
+We welcome new contributors!
