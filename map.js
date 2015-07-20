@@ -1,5 +1,6 @@
-var width = window.innerWidth,
-    height = window.innerHeight;
+var width = window.innerWidth-50,
+    height = window.innerHeight -
+             document.getElementById('header').offsetHeight;
 
 var force = d3.layout.force()
     .charge(-1200)
@@ -8,7 +9,8 @@ var force = d3.layout.force()
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
+    .attr("id", "map");
 
 var graph =
     {
@@ -39,49 +41,49 @@ var graph =
 var edges = [];
   graph.links.forEach(function(e) {
 
-    var sourceNode = graph.nodes.filter( function(n) { return n.name === e.source; } )[0];
-    var targetNode = graph.nodes.filter( function(n) { return n.name=== e.target; })[0];
+	var sourceNode = graph.nodes.filter( function(n) { return n.name === e.source; } )[0];
+	var targetNode = graph.nodes.filter( function(n) { return n.name=== e.target; })[0];
 
-    edges.push({source: sourceNode, target: targetNode, relationship: e.relationship});
+	edges.push({source: sourceNode, target: targetNode, relationship: e.relationship});
   });
 
 force
-    .nodes(graph.nodes)
-    .links(edges)
-    .start();
+	.nodes(graph.nodes)
+	.links(edges)
+	.start();
 
 var link = svg.selectAll(".link")
-    .data(edges)
-    .enter().append("line")
-    .attr("stroke","#555")
-    .attr("class", "link");
+	.data(edges)
+	.enter().append("line")
+	.attr("class", "link");
 
 var node = svg.selectAll(".node")
-    .data(graph.nodes)
-      .enter().append("g")
-      .attr("class", "node")
-      .call(force.drag);
+	.data(graph.nodes)
+		.enter().append("g")
+		.attr("class", "node")
+		.call(force.drag);
+
+var map = document.getElementById('map'),
+	  letterh = parseFloat(getComputedStyle(map).getPropertyValue('font-size')),
+		letterw = letterh * 0.75;
 
 node.append("rect")
-      .attr("class", "nodebg")
-      .attr("x", function(d) { return (d.name).length * -8 - 6; })
-      .attr("y", -24)
-      .attr("rx", 8)
-      .style("fill",function() {
+  .attr("class", "nodebg")
+  .attr("height", letterh * 2.5)
+  .attr("width", function(d) { return (d.name).length * letterw + 1.5*letterw; })
+  .attr("x", function(d) { return -(d.name).length * letterw/2; })
+  .attr("y", -(letterh))
+  .attr("rx", 8)
+  .attr("fill", function() {
     return "hsl(" + (Math.random() * 5 + 200) + ",100%," + (Math.random() * 17 + 26) + "%)";
-    })
-      .attr("height", 54)
-      .attr("width", function(d) { return (d.name).length * 16 + 32; });
+});
 
-  node.append("text")
-      .attr("class", "nodetxt")
-      .text(function(d) { return d.name; })
-      .attr("text-anchor", "middle")
-      .style("font-family","sans-serif")
-      .style("font-size", "24px")
-      .style("fill","#fff")
-      .attr("x", 10)
-      .attr("y", 10);
+node.append("text")
+  .attr("class", "nodetxt")
+  .text(function(d) { return d.name; })
+  .attr("text-anchor", "middle")
+  .attr("x", 10)
+  .attr("y", 10);
 
 force.on("tick", function() {
   link.attr("x1", function(d) { return d.source.x; })
@@ -94,8 +96,6 @@ force.on("tick", function() {
 
 
 $(document).ready(function () {
-    console.log("enter js")
-    
     url = "https://conceptualeyes.firebaseio.com/"
     addBtnId = "add_rel_btn"
 
