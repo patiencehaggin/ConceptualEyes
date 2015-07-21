@@ -9,19 +9,25 @@
 <script src='https://cdn.firebase.com/js/client/2.2.7/firebase.js'></script>
 </head>
 <body>
-<div id='header'>
-<img src='logo.png' title='ConceptualEyes'>
+<header id='header'>
+<img id='logo' src='logo.png' title='ConceptualEyes'>
     <p>Enter your concepts and relationships below:</p>
     <form>
-        <label for='source_field'>Concept 1</label>
-        <input type='text' id='source_field'  name='Concept 1' placeholder='Enter a concept' required>
-        <label for='relationship_field'>Relationship</label>
-        <input type='text' id='relationship_field' name='Relationship' placeholder='Describe the relationship'>
-        <label for='target_field'>Concept 2</label>
-        <input type='text' id='target_field' name='Concept 2' placeholder='Enter the related concept' required>
-        <input type='submit' id='add_rel_btn'></input>    
+        <label>
+					<span>Concept 1</span>
+        	<input type='text' id='source_field'  name='Concept 1' placeholder='Enter a concept' required>
+				</label>
+        <label>
+					<span>Relationship</span>
+        	<input type='text' id='relationship_field' name='Relationship' placeholder='Describe the relationship'>
+				</label>
+        <label>
+					<span>Concept 2</span>
+					<input type='text' id='target_field' name='Concept 2' placeholder='Enter the related concept' required>
+				</label>
+        <button id='add_rel_btn'>Add to map</button>    
     </form>
-</div>
+</header>
 <script src='map.js'></script>
 </body>
 </html>
